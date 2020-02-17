@@ -14,7 +14,7 @@ class Assuntos extends Model
     ];
 
 
-    public function getAssuntos(){
+    public function getAllAssuntos(){
         $assuntoPai = DB::table('tb_assuntos')->select('*')->whereNull('id_parent')->get();
         $assuntoFilho = DB::table('tb_assuntos')->select('*')->whereNotNull('id_parent')->get();
 
@@ -27,9 +27,10 @@ class Assuntos extends Model
         return $assuntoPai;
     }
 
-    public function getSubAssuntosByParent($idAssunto){
-        $select = DB::table('tb_subassuntos')->select('*')
-            ->where('id_assunto','=',$idAssunto)
+    public function getAssuntoByID($idassunto){
+        $select = DB::table('tb_assuntos')
+            ->select('*')
+            ->where('id_assunto','=',$idassunto)
             ->get();
         return $select;
     }

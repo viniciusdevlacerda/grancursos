@@ -3,7 +3,11 @@
     <section id="quiz">
         <div class="container">
             <div class="row mt-5">
+
                 <div class="col-12">
+                    @if(Session::has('success'))
+                        <div class="alert alert-success">{{Session::get('success')}}</div>
+                    @endif
                     <div class="card">
                         <div class="card-header">
                             <h1>Questões</h1>
@@ -28,15 +32,15 @@
                     </div>
                 </div>
             </div>
-            @if(isset($result))
+
             <div class="row mt-5">
                 <div class="col-12">
-                    @foreach($filterResult as $result)
-                        <div class="card card-body my-2"><h2 class="card-title">{{$result['ds_assunto']}}</h2></div>
+                    @foreach($filterResult as $key=>$result)
+                        <div class="card card-body my-2"><h2 class="card-title">{{$key}}</h2></div>
                     @endforeach
                 </div>
             </div>
-            @endif
+
         </div>
     </section>
 @endsection

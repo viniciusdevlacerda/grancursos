@@ -18,7 +18,6 @@ class Questoes extends Model
             $filter = DB::table('rl_questao_assunto_orgao_banca')
                 ->select()
                 ->join('tb_assuntos','tb_assuntos.id_assunto','=','rl_questao_assunto_orgao_banca.id_assunto')
-                ->join('tb_questoes','tb_questoes.id_questao','=','rl_questao_assunto_orgao_banca.id_questao')
                 ->where('id_banca','=',$param['banca'])
                 ->where('id_orgao','=',$param['orgao'])
                 ->get();

@@ -28,16 +28,21 @@ class QuestoesController extends Controller
     {
         $arrFilter = [];
         $param = $request->query();
-        if (!empty($param) && $request->isMethod('get')) {
-            $filterResult = $this->questoes->getFilterQuestoes($param);
-            foreach ($filterResult as $key => $filter):
-                $filter = get_object_vars($filter);
-                $arrFilter[$filter['id_assunto']][] = $filter;
+        if (isset($param) && $request->isMethod('get')) {
+
+            $arrFilters = $this->questoes->getFilterQuestoes($param);
+            foreach ($arrFilters as $filter):
+                $arrFilter[$filter->ds_assunto][] = $filter;
             endforeach;
-            $result = ($filterResult) ? true : false;
+
+            $result = !empty($arrFilter) ? true : false;
             $arrView['result'] = $result;
             $arrView['filterResult'] = $arrFilter;
+
+            $txtSuccess = ($result) ? 'Questões econtradas!' : 'Questões não econtradas!';
+            \Session::flash('success', $txtSuccess);
         }
+
         $arrView = [
             'allBancas'=> $this->bancas->get(),
             'allOrgaos'=> $this->orgaos->get()
@@ -49,7 +54,7 @@ class QuestoesController extends Controller
         return view('questoes.list',
             [
                 'allQuestoes'=> $this->questoes->get(),
-                'allAssuntos'=> $this->assuntos->getAssuntos(),
+                'allAssuntos'=> $this->assuntos->getAllAssuntos(),
                 'allBancas'=> $this->bancas->get(),
                 'allOrgaos'=> $this->orgaos->get()
             ]);

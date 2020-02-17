@@ -17,7 +17,7 @@ class AssuntosController extends Controller
 
     public function view()
     {
-        return view('assuntos.view',['allAssuntos' => $this->assuntos->getAssuntos()]);
+        return view('assuntos.view',['allAssuntos' => $this->assuntos->getAllAssuntos()]);
     }
 
     public function add(Request $request)
