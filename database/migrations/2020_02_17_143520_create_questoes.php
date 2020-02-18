@@ -16,6 +16,10 @@ class CreateQuestoes extends Migration
         Schema::create('tb_questoes', function (Blueprint $table) {
             $table->bigIncrements('id_questao');
             $table->text('tx_questao');
+            $table->integer('id_orgao');
+            $table->integer('id_banca');
+            $table->integer('id_assunto');
+            $table->string('ds_assunto');
             $table->timestamps();
         });
     }

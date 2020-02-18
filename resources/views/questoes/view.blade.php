@@ -35,9 +35,14 @@
 
             <div class="row mt-5">
                 <div class="col-12">
-                    @foreach($filterResult as $key=>$result)
-                        <div class="card card-body my-2"><h2 class="card-title">{{$key}}</h2></div>
-                    @endforeach
+                    @if(isset($filterResult))
+                        @foreach($filterResult as $key=>$result)
+                        <div class="card card-header my-2">
+                            <h3 class="card-title">{{$key}} - {{count($result)}} questões</h3>
+                        </div>
+                         @endforeach
+                        @if(empty($filterResult)) <h3>Não há registros com os filtros selecionados.</h3>@endif
+                    @endif
                 </div>
             </div>
 

@@ -23,12 +23,8 @@
             </button>
             <div class="collapse navbar-collapse" id="collapsibleNavId">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="nav-assuntos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Questões</a>
-                        <div class="dropdown-menu" aria-labelledby="nav-assuntos">
-                            <a class="dropdown-item" href="{{url('questoes/list')}}" >Todas as Questões Cadastradas</a>
-                        </div>
-                    </li>
+                    <li class="nav-item"><a class="nav-link " href="{{url('/')}}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link " href="{{url('questoes/list')}}">Questões Cadastradas</a></li>
                     <li class="nav-item"><a class="nav-link " href="{{url('orgaos/view')}}">Órgãos</a></li>
                     <li class="nav-item"><a class="nav-link " href="{{url('bancas/view')}}">Bancas</a></li>
                     <li class="nav-item"><a class="nav-link " href="{{url('assuntos/view')}}">Assuntos</a></li>

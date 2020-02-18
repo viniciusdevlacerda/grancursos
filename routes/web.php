@@ -16,8 +16,6 @@ Route::get('/questoes/list','QuestoesController@list');
 
 Route::any('/questoes/add','QuestoesController@add');
 
-Route::any('/questoes/add/vinculo','QuestoesController@addVinculo');
-
 Route::get('/orgaos/view','OrgaosController@view');
 
 Route::any('/orgaos/add','OrgaosController@add');

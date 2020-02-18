@@ -28,24 +28,15 @@ class QuestoesController extends Controller
     {
         $arrFilter = [];
         $param = $request->query();
-        if (isset($param) && $request->isMethod('get')) {
-
-            $arrFilters = $this->questoes->getFilterQuestoes($param);
-            foreach ($arrFilters as $filter):
+        if (!empty($param) && $request->isMethod('get')) {
+            foreach ($this->questoes->getFilterQuestoes($param) as $filter):
                 $arrFilter[$filter->ds_assunto][] = $filter;
             endforeach;
-
-            $result = !empty($arrFilter) ? true : false;
-            $arrView['result'] = $result;
-            $arrView['filterResult'] = $arrFilter;
-
-            $txtSuccess = ($result) ? 'Questões econtradas!' : 'Questões não econtradas!';
-            \Session::flash('success', $txtSuccess);
         }
-
         $arrView = [
             'allBancas'=> $this->bancas->get(),
-            'allOrgaos'=> $this->orgaos->get()
+            'allOrgaos'=> $this->orgaos->get(),
+            'filterResult'=> $arrFilter
         ];
         return view('questoes.view',$arrView);
     }
@@ -53,7 +44,7 @@ class QuestoesController extends Controller
     {
         return view('questoes.list',
             [
-                'allQuestoes'=> $this->questoes->get(),
+                'allQuestoes'=> $this->questoes->getAllQuestoes(),
                 'allAssuntos'=> $this->assuntos->getAllAssuntos(),
                 'allBancas'=> $this->bancas->get(),
                 'allOrgaos'=> $this->orgaos->get()
@@ -62,22 +53,17 @@ class QuestoesController extends Controller
 
     public function add(Request $request)
     {
-        $cliente = $this->questoes->create([ 'tx_questao' => $request->tx_questao,]);
+        $cliente = $this->questoes->setQuestoes([
+            'tx_questao' => $request->tx_questao,
+            'id_assunto' => $request->id_assunto,
+            'ds_assunto' => $request->ds_assunto,
+            'id_banca' => $request->id_banca,
+            'id_orgao' => $request->id_orgao,
+        ]);
         \Session::flash('success',"Questão cadastrada com sucesso!");
         if($cliente){
             return Redirect::to('questoes/list');
         }
     }
 
-    public function addVinculo(Request $request)
-    {
-        $cliente = $this->questoes->setLinkQuestaoAssuntoBancaOrgao([
-            'id_questao' => $request->id_questao, 'id_assunto' => $request->id_assunto, 'id_banca' => $request->id_banca, 'id_orgao' =>$request->id_orgao
-        ]);
-        \Session::flash('success',"Questão vinculada com sucesso!");
-        if($cliente){
-            return Redirect::to('questoes/list');
-        }
-    }
-
-}
+ }

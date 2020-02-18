@@ -2,13 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87039e07-2c58-4836-9411-e67e31b6fca6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Assuntos.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Assuntos.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AssuntosController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AssuntosController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/QuestoesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/QuestoesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ServicesController.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Questoes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Questoes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_17_122001_create_assuntos_parent.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_17_143520_create_questoes.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_17_143520_create_questoes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layout/layout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/questoes/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questoes/list.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/questoes/view.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/questoes/view.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -191,6 +196,7 @@
       <workItem from="1581941520404" duration="27819000" />
       <workItem from="1581973308556" duration="64000" />
       <workItem from="1581973385396" duration="3936000" />
+      <workItem from="1581983101599" duration="8386000" />
     </task>
     <servers />
   </component>

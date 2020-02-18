@@ -13,11 +13,19 @@ class Questoes extends Model
     ];
 
 
+    public function getAllQuestoes(){
+        $filter = DB::table('tb_questoes')
+            ->select()
+            ->join('tb_orgao','tb_orgao.id_orgao','=','tb_questoes.id_orgao')
+            ->join('tb_banca','tb_banca.id_banca','=','tb_questoes.id_banca')
+            ->get();
+        return $filter;
+    }
+
     public function getFilterQuestoes(Array $param){
         if ($param){
-            $filter = DB::table('rl_questao_assunto_orgao_banca')
+            $filter = DB::table('tb_questoes')
                 ->select()
-                ->join('tb_assuntos','tb_assuntos.id_assunto','=','rl_questao_assunto_orgao_banca.id_assunto')
                 ->where('id_banca','=',$param['banca'])
                 ->where('id_orgao','=',$param['orgao'])
                 ->get();
@@ -26,10 +34,9 @@ class Questoes extends Model
 
     }
 
-    public function setLinkQuestaoAssuntoBancaOrgao(Array $data){
-        $updateOrInsert = DB::table('rl_questao_assunto_orgao_banca')
+    public function setQuestoes($data){
+        $result = DB::table('tb_questoes')
             ->updateOrInsert($data);
-        return $updateOrInsert;
+        return $result;
     }
-
 }
